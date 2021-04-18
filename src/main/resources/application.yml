@@ -1,0 +1,23 @@
+project:
+  version: @project.version@
+
+spring:
+  kafka:
+    bootstrap-servers: zkserver01.cdel.local:19094,zkserver02.cdel.local:19094,zkserver03.cdel.local:19094
+#    bootstrap-servers: [server1]:[port],[server2]:[port]
+
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+      properties:
+        spring:
+          deserializer:
+            value:
+              delegate:
+                class: org.springframework.kafka.support.serializer.JsonDeserializer
+          json:
+            trusted:
+              packages: "*"
