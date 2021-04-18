@@ -1,6 +1,10 @@
 # spring-boot2-kafka
 
-A demo program for kafka based on spring boot2
+It's not just a demo, for example:
+
+- how to handle generic JSON deserialization
+- the guide for Exception handling.
+- the lightest way for using kafka under spring.
 
 ## pom.xml
 
@@ -20,7 +24,7 @@ spring:
   kafka:
     bootstrap-servers: [server01]:[port],[server02]:[port],...
     producer:
-	  # default use `StringSerializer`, but JSON is common use case
+      # default use `StringSerializer`, but JSON is common use case
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
     consumer:
